@@ -1,9 +1,9 @@
 import React from 'react';
 import logo2 from '../assets/logo-2.png';
-//import bg from '../assets/footer-bg-1.jpg'
+import bg from '../assets/footer-bg-1.jpg'
 export function Footer() {
   return (
-    <section className="relative overflow-hidden py-10 text-white font-serif "  >
+    <section className="relative overflow-hidden py-10 text-white font-serif " style={{ backgroundImage: `url(${bg})`, backgroundRepeat: 'no-repeat', backgroundSize:'cover'}} >
         <div style={{backgroundColor: 'rgba(0, 0, 0, 0.7)'}} className='h-full'>
         <div className="relative z-10 mx-auto max-w-7xl px-4 " >
         <div className="-m-6 flex flex-wrap">
