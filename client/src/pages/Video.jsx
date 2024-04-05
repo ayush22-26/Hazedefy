@@ -68,8 +68,8 @@ function Video() {
                   Upload Video
                 </button>
               </div>
-              <div>
-              {processedVideoPath && <button onClick={downloadProcessedVideo} className="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-primary transition duration-150 ease-in-out bg-secondary border border-transparent rounded-md cursor-pointer  focus:outline-none focus:shadow-outline-blue md:py-4 md:text-lg md:px-8">Download Video</button>}
+              <div >
+              {processedVideoPath && <button onClick={downloadProcessedVideo} className="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-primary transition duration-150 ease-in-out bg-secondary border border-transparent rounded-md cursor-pointer  focus:outline-none focus:shadow-outline-blue md:py-4 md:text-lg md:px-8 ml-3">Download Video</button>}
 
               </div>
             </div>
