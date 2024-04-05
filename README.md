@@ -38,6 +38,6 @@ CrystalView is a web application that enhances visibility in images and videos b
 
 To install CrystalView, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/yourusername/crystalview.git`
+1. Clone the repository: `git clone https://github.com/AviralPatel0526/Hack-Byte-IIITDM-Jabalpur`
 2. Install dependencies: `npm install`
 
