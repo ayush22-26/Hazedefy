@@ -1,4 +1,5 @@
-# CrystalView: Enhancing Visibility for Safety and Clarity
+# Crystal View: See the World Sharper!
+
 
 CrystalView is a web application that enhances visibility in images and videos by removing haze and improving clarity. It is designed to be used in various scenarios, including fire rescue operations, underwater surveys, scientific research, traffic accident protection, military and defense, and air quality monitoring.
 
