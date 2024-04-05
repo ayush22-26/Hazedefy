@@ -1,9 +1,9 @@
 import './App.css'
 import Navbar from './components/Navbar'
 import { Footer } from './components/Footer'
-import Home from './Pages/Home'
+import Home from './pages/Home'
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Upload from './Pages/Upload';
+import Upload from './pages/Upload';
 
 function App() {
 
