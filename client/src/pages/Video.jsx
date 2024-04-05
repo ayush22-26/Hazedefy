@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import vdehaze from '../assets/vdehaze.png'
+//import vdehaze from '../assets/vdehaze.png'
 function Video() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [processedVideoPath, setProcessedVideoPath] = useState(null);
@@ -25,7 +25,7 @@ function Video() {
   };
 
   const downloadProcessedVideo = () => {
-    axios.get(`http://localhost:5000/processedvideo?path=${processedVideoPath}`, { responseType: 'blob' })
+    axios.get(`http://127.0.0.1:5000/processedvideo?path=${processedVideoPath}`, { responseType: 'blob' })
       .then(response => {
         const url = window.URL.createObjectURL(new Blob([response.data]));
         const link = document.createElement('a');
@@ -78,7 +78,7 @@ function Video() {
         <div className="flex items-center py-5 md:w-1/2 md:pb-20 md:pt-10 md:pl-10">
           <div className="relative w-full p-3 rounded md:p-8">
             <div className="rounded-lg bg-white text-black w-full">
-              <img src={vdehaze} alt="Dehaze" />
+              {/*<img src={vdehaze} alt="Dehaze" />*/}
             </div>
           </div>
         </div>
