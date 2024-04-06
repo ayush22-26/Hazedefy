@@ -21,23 +21,23 @@ function Services() {
 
         <div className='overlay flex flex-col gap-4'>
             <p className='text-white text-[32px] font-bold'>Fire Fighting</p>
-            <p className='text-white text-[22px]'>There are many passages of available but the suffered.</p>
+            <p className='text-white text-[22px]'>Dehaze smoke-filled scenes for accurate surveillance and monitoring.</p>
             <button className='bg-primary px-5 py-1 text-white font-medium'>MORE</button>
           </div>
         </div>
         <div className='service-item' style={{ backgroundImage: `url(${service2})` }}>
-        <p className='text-white text-[35px] font-bold yup'>Oppression Force</p>
+        <p className='text-white text-[35px] font-bold yup'>Underwater Exploration</p>
           <div className='overlay flex flex-col gap-4'>
-            <p className='text-white text-[32px] font-bold'>Oppression Force</p>
-            <p className='text-white text-[22px]'>There are many passages of available but the suffered.</p>
+            <p className='text-white text-[32px] font-bold'>Underwater Exploration</p>
+            <p className='text-white text-[22px]'>Enhance underwater exploration footage by removing haziness.</p>
             <button className='bg-primary px-5 py-1 text-white font-medium'>MORE</button>
           </div>
         </div>
         <div className='service-item' style={{ backgroundImage: `url(${service3})` }}>
-        <p className='text-white text-[35px] font-bold yup'>Fire Suppression</p>
+        <p className='text-white text-[35px] font-bold yup'>Smog Suppression</p>
         <div className='overlay flex flex-col gap-4'>
-            <p className='text-white text-[32px] font-bold'>Fire Suppression</p>
-            <p className='text-white text-[22px]'>There are many passages of available but the suffered.</p>
+            <p className='text-white text-[32px] font-bold'>Smog Suppression</p>
+            <p className='text-white text-[22px]'>Dehaze road scenes for safer driving with enhanced visibility.</p>
             <button className='bg-primary px-5 py-1 text-white font-medium'>MORE</button>
           </div>
         </div>

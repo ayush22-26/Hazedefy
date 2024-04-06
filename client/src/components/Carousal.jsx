@@ -42,8 +42,8 @@ const Carousel = () => {
       </div>
       <div className= 'absolute top-20 sm:left-40 left-4 md:w-[55vw] sm:w-[60vw] w-full'>
             <div >
-              <p className='xl:text-[90px] lg:text-[70px] text-[50px] font-bold ' style={{lineHeight:1.1}}>We are here to save lives and properties</p>
-              <p className='mt-8 text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, sunt necessitatibus? Recusandae provident vero tempora!</p>
+              <p className='xl:text-[70px] lg:text-[50px] text-[30px] font-bold ' style={{lineHeight:1.1}}>Revive clarity, transform haze. Clear vision awaits. Dehaze now!</p>
+              <p className='mt-8 text-lg'>Banish foggy images with our advanced dehazing technology. Restore clarity and bring vibrancy back to your photos effortlessly.</p>
               </div>
             <button className='px-12 py-6 bg-primary mt-8'>
               DISCOVER MORE

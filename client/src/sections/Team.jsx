@@ -26,13 +26,13 @@ const Team = () => {
               <div className="flex-grow sm:pl-8">
                 <h2 className="title-font font-medium text-lg text-gray-900">B Deewakar Rao</h2>
                 <h3 className="text-gray-500 mb-3">Full Stack Developer</h3>
-                <p className="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+                <p className="mb-4">Experienced Full Stack MERN Developer adept at creating dynamic, scalable web applications using MongoDB, Express.js, React, and Node.js</p>
                 <span className="inline-flex">
-                  <a className="text-gray-500">
+                  <a className="text-gray-500" href='https://www.linkedin.com/in/b-deewakar-rao-960438280/'>
                    <img src={linkedin} alt=""  className='w-[35px]'/>
                   </a>
-                  <a className="text-gray-500">
-                    <img src={github} alt="" className='w-[35px]'/>
+                  <a className="text-gray-500" href='https://github.com/deewakar28'>
+                    <img src={github} alt="" className='w-[35px]' />
                     
                   </a>
                 </span>
@@ -45,12 +45,12 @@ const Team = () => {
               <div className="flex-grow sm:pl-8">
                 <h2 className="title-font font-medium text-lg text-gray-900">Aviral Patel</h2>
                 <h3 className="text-gray-500 mb-3">Full Stack Developer</h3>
-                <p className="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+                <p className="mb-4">Skilled Full Stack MERN Developer proficient in MongoDB, Express.js, React, and Node.js for comprehensive web development solutions</p>
                 <span className="inline-flex">
-                  <a className="text-gray-500">
+                  <a className="text-gray-500" href='https://www.linkedin.com/in/aviralpatel/'>
                    <img src={linkedin} alt=""  className='w-[35px]'/>
                   </a>
-                  <a className="text-gray-500">
+                  <a className="text-gray-500" href='https://github.com/AviralPatel0526'>
                     <img src={github} alt="" className='w-[35px]'/>
                     
                   </a>
@@ -64,12 +64,12 @@ const Team = () => {
               <div className="flex-grow sm:pl-8">
                 <h2 className="title-font font-medium text-lg text-gray-900">Satya Prakash Jena</h2>
                 <h3 className="text-gray-500 mb-3">Blockchain Developer</h3>
-                <p className="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+                <p className="mb-4">Experienced Blockchain Developer proficient in creating secure, decentralized solutions using distributed ledger technology for various industries and use cases.</p>
                 <span className="inline-flex">
-                  <a className="text-gray-500">
+                  <a className="text-gray-500" href='https://www.linkedin.com/in/satya-prakash-jena-37a14524a/'>
                    <img src={linkedin} alt=""  className='w-[35px]'/>
                   </a>
-                  <a className="text-gray-500">
+                  <a className="text-gray-500" href='https://github.com/Satya22-26'>
                     <img src={github} alt="" className='w-[35px]'/>
                     
                   </a>
@@ -83,12 +83,13 @@ const Team = () => {
               <div className="flex-grow sm:pl-8">
                 <h2 className="title-font font-medium text-lg text-gray-900">Ayush Bhavsar</h2>
                 <h3 className="text-gray-500 mb-3">UI and AI-ML Developer</h3>
-                <p className="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+                <p className="mb-4">Innovative AIML Developer skilled in crafting intelligent solutions using Artificial Intelligence and Machine Learning algorithms for diverse applications.</p>
+
                 <span className="inline-flex">
-                  <a className="text-gray-500">
+                  <a className="text-gray-500" href='https://www.linkedin.com/in/ayushbhavsarnitrr/'>
                    <img src={linkedin} alt=""  className='w-[35px]'/>
                   </a>
-                  <a className="text-gray-500">
+                  <a className="text-gray-500" href='https://github.com/ayushbhavsar21'>
                     <img src={github} alt="" className='w-[35px]'/>
                     
                   </a>

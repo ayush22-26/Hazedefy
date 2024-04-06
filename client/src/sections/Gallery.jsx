@@ -13,7 +13,7 @@ const Gallery = () => {
           <p className='sm:text-2xl text-xl text-gray-700 text-center'>Gallery</p>
           <hr className='border-primary mt-2 w-[300px]' />
         </div>
-        <p className='sm:text-[45px] text-[28px] font-bold mt-2 text-black'>Memories Of Saving Lives</p>
+        <p className='sm:text-[45px] text-[28px] font-bold mt-2 text-black'>Dehaze Everything</p>
         </div>
     <div className="container mx-auto px-5 py-2 lg:px-32 lg:pt-24">
       <div className="-m-1 flex flex-wrap md:-m-2">

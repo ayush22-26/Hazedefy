@@ -67,7 +67,7 @@ function Video() {
               <span className="font-bold text-primary"> videos</span>
             </h2>
             <p className="max-w-md mx-auto mt-3 text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vulputate dignissim augue, Nullam vulputate dignissim augue.
+            Our state-of-the-art dehazing technology ensures unparalleled clarity in both images and videos.
             </p>
             <div className="mt-5 sm:flex md:mt-8">
               {!uploading && !processedVideoPath && (
