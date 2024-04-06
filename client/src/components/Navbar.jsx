@@ -7,8 +7,9 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 function Navbar() {
 
-  const {user, loginWithRedirect, isAuthenticated} = useAuth0();
+  const {user, loginWithRedirect, isAuthenticated, logout} = useAuth0();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [logoutDropdownOpen, setLogoutDropdownOpen] = useState(false);
   const [currentComponent, setCurrentComponent] = useState(null);
 
   const handleClick = (component) => {
@@ -34,33 +35,39 @@ function Navbar() {
               <a href="/">Home</a>
               <a href="#" onClick={() => handleClick('about')}>About Us</a>
               <a href="#" onClick={() => handleClick('services')}>Services</a>
-              <a href="/upload">Upload</a>
+              
               {isAuthenticated ? 
               (
               <>
-              <img src={user.picture} alt="" />
-              <button onClick={()=> loginWithRedirect()}>Logout</button>
+              <a href="/upload">Upload</a>
+              <button onClick={() => setLogoutDropdownOpen(!logoutDropdownOpen)}>
+                <img src={user.picture} alt=""  className='w-[40px] rounded-[50%]'/>
+              </button>
               </>
               ):(
                 <button onClick={()=> loginWithRedirect()}>Login</button>
               )}
-              
               
             </div>
             <button className='bg-primary px-2 py-1 md:hidden' onClick={() => setMenuOpen(!menuOpen)}>☰</button>
           </div>
         </div>
       </div>
+      {logoutDropdownOpen && isAuthenticated &&
+        <div className="absolute top-[15.2vh] right-4   bg-white rounded-lg shadow-md z-10">
+          <button onClick={()=> logout()} className='px-4 py-2'>Logout</button>
+        </div>
+      }
       <div className={`w-full h-[100vh] flex ${menuOpen ? 'fixed inset-0 z-10' : 'hidden'}`}>
         <div className='w-[20%] bg-primary h-full'>
 
         </div>
         <div className='w-[80%] bg-black h-[100vh] flex flex-col items-center gap-24'>
           <div className='flex w-full justify-between items-center px-4 h-[15vh]'>
-            <img src={logo2} alt="" className='h-[10vh]'/>
+            <img src={logo} alt="" className='h-[10vh]'/>
             <button className='text-white' onClick={() => setMenuOpen(false)}>🗙</button>
             {currentComponent === 'about' && <About/>}
-          {currentComponent === 'services' && <Services/>}
+          {currentComponent === 'services' && <Services/>}
           </div>
           <div className='flex flex-col text-white items-start gap-4'>
             <div>

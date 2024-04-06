@@ -5,8 +5,8 @@ function About() {
     <div id='about' className='flex xl:h-[110vh] h-auto w-full font-serif xl:flex-row flex-col justify-center items-center gap-28 xl:gap-0 xl:mt-0 mt-32'>
       <div className='h-full xl:w-[50%] sm:w-[90%] w-[100%] flex justify-center items-center'>
           <div className='h-full items-center justify-center flex w-[90%] xl:bg-secondary'>
-            <img src={about} alt="" className='relative w-[83%] h-[90vh] md:left-20 left-16'/>
-            <div className='relative xl:right-[35vw] lg:right-[45vw] md:right-[55vw] right-[75vw] sm:top-[45vh] top-[29vh] text-white bg-primary sm:h-[200px] h-[160px] w-[180px] flex flex-col justify-center items-center text-center '>
+            <img src={about} alt="" className='relative md:w-[83%] md:h-[90vh] md:left-20 left-8'/>
+            <div className='relative xl:right-[35vw] lg:right-[45vw] md:right-[55vw] right-[85vw] sm:top-[45vh] top-[29vh] text-white bg-primary sm:h-[200px] h-[160px] w-[180px] flex flex-col justify-center items-center text-center '>
                 <p className='text-[35px]'>5+</p>
                 <p className='text-2xl'>Use cases</p>
             </div>
