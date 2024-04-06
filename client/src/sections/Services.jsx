@@ -6,7 +6,7 @@ import './Services.css'; // Import CSS file for styling
 
 function Services() {
   return (
-    <div className='services-container flex flex-col gap-16 mt-24 xl:h-[90vh] h-auto mb-24 xl:mb-0'>
+    <div id='services' className='services-container flex flex-col gap-16 mt-24 xl:h-[90vh] h-auto mb-24 xl:mb-0'>
       <div className='text-center'>
         <div>
           <p className='sm:text-2xl text-xl text-gray-700 text-center'>A Safer Community Services</p>

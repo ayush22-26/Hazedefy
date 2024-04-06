@@ -3,8 +3,8 @@ import gal1 from "../assets/gallery-1.jpg";
 import gal2 from "../assets/gallery-2.jpg";
 import gal3 from "../assets/gallery-3.jpg";
 import gal4 from "../assets/gallery-4.jpg";
-import gal5 from "../assets/service-1.jpg";
-
+import gal5 from "../assets/gallery-5.jpg";
+import gal6 from "../assets/gallery-6.jpg";
 const Gallery = () => {
   return (
     <>
@@ -22,7 +22,7 @@ const Gallery = () => {
             <img
               alt="gallery"
               className="block h-full w-full rounded-lg object-cover object-center"
-              src={gal1}
+              src={gal5}
             />
           </div>
           <div className="w-1/2 p-1 md:p-2">
@@ -36,7 +36,7 @@ const Gallery = () => {
             <img
               alt="gallery"
               className="block h-full w-full rounded-lg object-cover object-center"
-              src={gal5}
+              src={gal3}
             />
           </div>
         </div>
@@ -52,7 +52,7 @@ const Gallery = () => {
             <img
               alt="gallery"
               className="block h-full w-full rounded-lg object-cover object-center"
-              src={gal3}
+              src={gal6}
             />
           </div>
           <div className="w-1/2 p-1 md:p-2">

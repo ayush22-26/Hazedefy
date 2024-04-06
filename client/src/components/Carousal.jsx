@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Carousal.css'; // Import CSS file for styling
 
-import Carousal1 from '../assets/banner-1.jpg';
+import Carousal1 from '../assets/banner-1.jpeg';
 import Carousal2 from '../assets/banner-2.jpg';
 import Carousal3 from '../assets/banner-3.jpg';
 

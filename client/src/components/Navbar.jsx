@@ -1,9 +1,22 @@
 import React, { useState } from 'react';
 import logo from '../assets/logo.png';
 import logo2 from '../assets/logo-2.png';
-
+import About from '../sections/About';
+import Services from '../sections/Services';
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [currentComponent, setCurrentComponent] = useState(null);
+
+  const handleClick = (component) => {
+    setCurrentComponent(component);
+    setMenuOpen(false);
+
+    // Scroll to the selected component
+    const element = document.getElementById(component);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <>
@@ -15,8 +28,8 @@ function Navbar() {
           <div className='flex gap-8 items-center'>
             <div className='md:flex gap-8 items-center hidden'>
               <a href="/">Home</a>
-              <a href="">About Us</a>
-              <a href="">Services</a>
+              <a href="#" onClick={() => handleClick('about')}>About Us</a>
+              <a href="#" onClick={() => handleClick('services')}>Services</a>
               <a href="/upload">Upload</a>
             </div>
             <button className='bg-primary px-2 py-1 md:hidden' onClick={() => setMenuOpen(!menuOpen)}>☰</button>
@@ -31,6 +44,8 @@ function Navbar() {
           <div className='flex w-full justify-between items-center px-4 h-[15vh]'>
             <img src={logo2} alt="" className='h-[10vh]'/>
             <button className='text-white' onClick={() => setMenuOpen(false)}>🗙</button>
+            {currentComponent === 'about' && <About/>}
+          {currentComponent === 'services' && <Services/>}
           </div>
           <div className='flex flex-col text-white items-start gap-4'>
             <div>
