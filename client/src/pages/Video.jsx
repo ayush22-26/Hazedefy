@@ -60,7 +60,7 @@ function Video() {
               <div className="rounded-md shadow">
                 <label htmlFor="image-upload" className="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-primary border border-transparent rounded-md cursor-pointer focus:outline-none focus:shadow-outline-blue md:py-4 md:text-lg md:px-8">
                   Choose file
-                  <input id="image-upload" name="image-upload" type="file" className="hidden" accept="image/*" onChange={fileSelectedHandler} />
+                  <input id="image-upload" name="file" type="file" className="hidden" accept="video/*" onChange={fileSelectedHandler} />
                 </label>
               </div>
               <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
