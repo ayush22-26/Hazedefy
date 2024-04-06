@@ -1,5 +1,5 @@
 import React from 'react';
-import logo2 from '../assets/logo-2.png';
+import logo from '../assets/logo.png';
 import bg from '../assets/footer-bg-1.jpg'
 export function Footer() {
   return (
@@ -10,12 +10,12 @@ export function Footer() {
           <div className="w-full p-6 md:w-1/2 lg:w-5/12">
             <div className="flex h-full flex-col justify-between">
               <div className="mb-4 inline-flex items-center">
-                <img src={logo2} className='h-[15vh]' alt="" />
+                <img src={logo} className='h-[15vh]' alt="" />
               </div>
               <div>
-                <p className="mb-4  text-base font-medium">Discover The Epitome of High Fashion</p>
+                <p className="mb-4  text-base font-medium">Discover The Power of Hazedefy</p>
                 <p className="text-sm text-white">
-                  &copy; Copyright 2024. All Rights Reserved by Fashion.
+                  &copy; Copyright 2024. All Rights Reserved by Hazedefy.
                 </p>
               </div>
             </div>
@@ -57,12 +57,12 @@ export function Footer() {
                 </li>
                 <li className="mb-4">
                   <a className=" text-base font-medium text-slate-300 hover:text-gray-500" href="#">
-                    fashion@gmail.com
+                  hazedefy@gmail.com
                   </a>
                 </li>
                 <li className="mb-4">
                   <a className=" text-base font-medium text-slate-300 hover:text-gray-500" href="#">
-                    www.fashion.com
+                    www.hazedefy.com
                   </a>
                 </li>
               </ul>

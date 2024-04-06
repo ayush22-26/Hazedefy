@@ -41,13 +41,13 @@ const Carousel = () => {
         ))}
       </div>
       <div className= 'absolute top-20 sm:left-40 left-4 md:w-[55vw] sm:w-[60vw] w-full'>
-            <div >
+            <div className='mb-12'>
               <p className='xl:text-[70px] lg:text-[50px] text-[30px] font-bold ' style={{lineHeight:1.1}}>Revive clarity, transform haze. Clear vision awaits. Dehaze now!</p>
               <p className='mt-8 text-lg'>Banish foggy images with our advanced dehazing technology. Restore clarity and bring vibrancy back to your photos effortlessly.</p>
               </div>
-            <button className='px-12 py-6 bg-primary mt-8'>
+            <a href='/upload' className='px-12 py-6 bg-primary '>
               DISCOVER MORE
-            </button>
+            </a>
           </div>
     </div>
   );

@@ -27,9 +27,9 @@ function About() {
             <li>Instantly remove haze from your visuals with our real-time dehazing capabilities.</li>
             <li>Elevate your content with enhanced visibility, contrast, and detail using our advanced model.</li>
         </ul>
-        <button className='px-12 py-6 w-[300px] bg-primary mt-8 text-white'>
+        <a href='/upload' className='px-12 py-6 w-[300px] bg-primary mt-8 text-white'>
               DISCOVER MORE
-            </button>
+            </a>
         </div>
       
       </div>
