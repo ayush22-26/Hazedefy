@@ -3,7 +3,11 @@ import logo from '../assets/logo.png';
 import logo2 from '../assets/logo-2.png';
 import About from '../sections/About';
 import Services from '../sections/Services';
+import { useAuth0 } from '@auth0/auth0-react';
+
 function Navbar() {
+
+  const {user, loginWithRedirect, isAuthenticated} = useAuth0();
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentComponent, setCurrentComponent] = useState(null);
 
@@ -31,6 +35,17 @@ function Navbar() {
               <a href="#" onClick={() => handleClick('about')}>About Us</a>
               <a href="#" onClick={() => handleClick('services')}>Services</a>
               <a href="/upload">Upload</a>
+              {isAuthenticated ? 
+              (
+              <>
+              <img src={user.picture} alt="" />
+              <button onClick={()=> loginWithRedirect()}>Logout</button>
+              </>
+              ):(
+                <button onClick={()=> loginWithRedirect()}>Login</button>
+              )}
+              
+              
             </div>
             <button className='bg-primary px-2 py-1 md:hidden' onClick={() => setMenuOpen(!menuOpen)}>☰</button>
           </div>
