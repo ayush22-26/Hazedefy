@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import logo from '../assets/logo.png';
-import logo2 from '../assets/logo-2.png';
 import About from '../sections/About';
 import Services from '../sections/Services';
 import { useAuth0 } from '@auth0/auth0-react';
+import {toast} from 'react-toastify';
 
 function Navbar() {
 
@@ -22,6 +22,10 @@ function Navbar() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const handleLogin = ()=>{
+    loginWithRedirect().then(toast.success("User Logged In!!"))
+  }
 
   return (
     <>
@@ -45,7 +49,7 @@ function Navbar() {
               </button>
               </>
               ):(
-                <button onClick={()=> loginWithRedirect()}>Login</button>
+                <button onClick={handleLogin}>Login</button>
               )}
               
             </div>
@@ -55,7 +59,7 @@ function Navbar() {
       </div>
       {logoutDropdownOpen && isAuthenticated &&
         <div className="absolute top-[15.2vh] right-4   bg-white rounded-lg shadow-md z-10">
-          <button onClick={()=> logout()} className='px-4 py-2'>Logout</button>
+          <button onClick={()=> logout().then(toast.success("User Logged Out!!"))} className='px-4 py-2'>Logout</button>
         </div>
       }
       <div className={`w-full h-[100vh] flex ${menuOpen ? 'fixed inset-0 z-10' : 'hidden'}`}>

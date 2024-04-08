@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import dehaze from '../assets/dehazed.png';
+import { toast } from 'react-toastify';
 
 function ImageUpload() {
   const [file, setFile] = useState(null);
@@ -27,6 +28,7 @@ function ImageUpload() {
       const url = window.URL.createObjectURL(response.data);
       setDehazedImagePath(url);
       setShowModal(true);
+      toast.success("Dehaze Done!!");
     } catch (error) {
       console.error('Error uploading image:', error);
     }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import vdehaze from '../assets/vdehaze.png';
 import load from '../assets/loading-icon.png';
+import { toast } from 'react-toastify';
 
 function Video() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -23,6 +24,9 @@ function Video() {
       .then((response) => {
         console.log('Upload successful:', response.data);
         setProcessedVideoPath(response.data.processed_video_path);
+      })
+      .then(result=>{
+        toast.success("Dehaze Done!!");
       })
       .catch((error) => {
         console.error('Upload failed:', error.message);
