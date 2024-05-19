@@ -3,7 +3,9 @@
 
 ### Overview:
 
-The Dehaze as a Service  platform is a cutting-edge solution that offers image and video dehazing capabilities, as well as real-time dehazing features. This platform leverages advanced algorithms and deep learning techniques to remove haze, fog, and other atmospheric disturbances from visual data, significantly improving visibility and clarity. With a wide range of applications across various industries, this platform is poised to revolutionize how we perceive and analyze visual information.
+Hazedefy is a cutting-edge Dehaze as a Service platform that offers advanced image and video dehazing capabilities, including real-time dehazing features. This innovative solution leverages state-of-the-art algorithms and deep learning techniques to remove haze, fog, and other atmospheric disturbances from visual data, significantly enhancing visibility, clarity, and detail. By effectively mitigating the adverse effects of atmospheric scattering, Hazedefy enables accurate perception and analysis of visual information across a wide range of applications and industries. With its powerful dehazing capabilities, Hazedefy is poised to revolutionize how we capture, process, and interpret visual data, unlocking new possibilities in sectors such as transportation, surveillance, remote sensing, and computer vision.
+
+
 
 ### Key Features:
 
