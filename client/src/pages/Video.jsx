@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import vdehaze from '../assets/vdehaze.png';
+import vdehaze from '../assets/vdehaze.jpg';
 import load from '../assets/loading-icon.png';
-import { toast } from 'react-toastify';
+import { toast , ToastContainer} from 'react-toastify';
 
 function Video() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -15,12 +15,12 @@ function Video() {
   };
 
   const fileUploadHandler = () => {
-    setUploading(true); // Set uploading to true
+    setUploading(true);
     const formData = new FormData();
     formData.append('file', selectedFile);
 
     axios
-      .post('http://127.0.0.1:5000/uploadvideo', formData)
+      .post('http://127.0.0.1:8000/uploadvideo/', formData)
       .then((response) => {
         console.log('Upload successful:', response.data);
         setProcessedVideoPath(response.data.processed_video_path);
@@ -30,7 +30,8 @@ function Video() {
       })
       .catch((error) => {
         console.error('Upload failed:', error.message);
-        // Display error message
+        toast.error("Dehaze failed!!");
+        
       })
       .finally(() => {
         setUploading(false); // Set uploading back to false
@@ -40,7 +41,7 @@ function Video() {
   const downloadProcessedVideo = () => {
     setDownloading(true);
     axios
-      .get(`http://127.0.0.1:5000/processedvideo?path=${processedVideoPath}`, { responseType: 'blob' })
+      .get(`http://127.0.0.1:8000/processedvideo/?path=${processedVideoPath}`, { responseType: 'blob' })
       .then((response) => {
         const url = window.URL.createObjectURL(new Blob([response.data]));
         const link = document.createElement('a');
@@ -49,10 +50,11 @@ function Video() {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+        toast.success("Download Done!!");
       })
       .catch((error) => {
         console.error('Download failed:', error.message);
-        // Display error message
+        toast.error("Download failed!!");
       })
       .finally(() => {
         setDownloading(false);
@@ -63,12 +65,12 @@ function Video() {
 
   return (
     <div>
-      <div className="relative flex flex-col items-center max-w-screen-xl px-4 mx-auto md:flex-row sm:px-6 p-8">
+      <div className="relative flex flex-col items-center max-w-screen-xl px-4 mx-auto md:flex-row sm:px-6 p-8 font-serif">
         <div className="flex items-center py-5 md:w-1/2 md:pb-20 md:pt-10 md:pr-10">
           <div className="text-left">
             <h2 className="text-4xl font-extrabold leading-10 tracking-tight text-gray-800 ">
               Dehaze
-              <span className="font-bold text-primary"> videos</span>
+              <span className="font-bold text-primary"> Videos</span>
             </h2>
             <p className="max-w-md mx-auto mt-3 text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
             Our state-of-the-art dehazing technology ensures unparalleled clarity in both images and videos.
@@ -116,6 +118,7 @@ function Video() {
           </div>
         </div>
       </div>
+      <ToastContainer autoClose={500} />
     </div>
   );
 }
