@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-h05(i(*e1sy9=93+%nw77j*q7l7&m2%na+^4#5n%m(hsf#dk)k'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,7 +42,22 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "corsheaders",
+    'cloudinary',
+    'cloudinary_storage',
 ]
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUD_NAME'),
+    'API_KEY': os.getenv('API_KEY'),
+    'API_SECRET': os.getenv('API_SECRET'),
+}
+
+cloudinary.config( 
+  cloud_name = CLOUDINARY_STORAGE['CLOUD_NAME'], 
+  api_key = CLOUDINARY_STORAGE['API_KEY'], 
+  api_secret = CLOUDINARY_STORAGE['API_SECRET'],
+  secure = True
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -125,7 +143,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_URL = '/uploads/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+MONGODB_URI = os.getenv('MONGODB_URI')
+
+MEDIA_URL = 'https://res.cloudinary.com/db5fa2k9o/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
-CORS_ALLOW_ALL_ORIGINS = True  # or configure CORS headers if using django-cors-headers
+CORS_ALLOW_ALL_ORIGINS = True  
