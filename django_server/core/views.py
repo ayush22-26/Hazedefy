@@ -19,7 +19,6 @@ location_data = {
 }
 
 def generate_frames():
-    cap = cv2.VideoCapture(0)
     while True:
         ret, frame = cap.read()
         if not ret:
