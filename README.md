@@ -100,8 +100,8 @@ Start the backend server
 
 
 ## Demo
+- [Youtube](https://youtu.be/VLvfvv1Fo9w?si=mAb1Ffesx7rzg1dv)
 
-https://clearitfromhaze.netlify.app/
 
 
 ## Tech Stack
