@@ -3,6 +3,7 @@ import axios from 'axios';
 import dehaze from '../assets/dehazed.png';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { HashLoader } from 'react-spinners';
 
 function ImageUpload() {
   const [file, setFile] = useState(null);
@@ -10,6 +11,7 @@ function ImageUpload() {
   const [dehazedImagePath, setDehazedImagePath] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [uploadHistory, setUploadHistory] = useState([]);
+  const [upload , setupload] = useState(false);
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -17,6 +19,7 @@ function ImageUpload() {
   };
 
   const uploadFile = async () => {
+    setupload(true);
   const formData = new FormData();
   formData.append('upload_file', file);
 
@@ -42,6 +45,7 @@ function ImageUpload() {
     console.error('Error uploading image:', error);
     toast.error("Upload failed!");
   }
+  setupload(false);
 };
 
 
@@ -126,6 +130,13 @@ function ImageUpload() {
                 </div>
               )}
             </div>
+            {upload && (
+                <div >
+                  <p className="text-gray-600 mt-5 items-center flex font-bold font-serif">Processing your image...
+                    <HashLoader className='ml-5' color="#cc5e28" size={40} />
+                  </p>
+                </div>
+              )}
           </div>
         </div>
 
@@ -139,7 +150,7 @@ function ImageUpload() {
       </div>
 
       {/* Upload History */}
-      <div className="max-w-4xl mx-auto p-4">
+      {/* <div className="max-w-4xl mx-auto p-4 font-serif">
         <h3 className="text-2xl font-bold mb-4">Upload History</h3>
         <ul className="space-y-3">
           {uploadHistory.map((upload, index) => (
@@ -149,7 +160,7 @@ function ImageUpload() {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
 
       {/* <ToastContainer autoClose={500} /> */}
     </div>

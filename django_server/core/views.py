@@ -1,6 +1,5 @@
 from django.http import StreamingHttpResponse, JsonResponse, FileResponse
 from django.views.decorators.csrf import csrf_exempt
-from django.core.files.storage import default_storage
 from django.conf import settings
 import cv2, numpy as np, base64, os, json
 from .utils.dehaze import dehaze
@@ -10,7 +9,8 @@ from .mongodb import collection
 import cloudinary
 import cloudinary.uploader
 import tempfile
-
+import threading
+import time
 
 location_data = {
     'chat_id': None,
@@ -46,33 +46,12 @@ def process_frame(request):
         _, buffer = cv2.imencode('.jpg', dehazed)
         return JsonResponse({'dehazed_image': base64.b64encode(buffer).decode('utf-8')})
 
-# @csrf_exempt
-# def dehaze_image_upload(request):
-#     if request.method == 'POST':
-#         file = request.FILES.get('upload_file')
-#         if file:
-#             input_dir = os.path.join(settings.MEDIA_ROOT, 'images')
-#             os.makedirs(input_dir, exist_ok=True)
-
-#             input_path = os.path.join(input_dir, 'upload_image.jpg')
-#             output_path = os.path.join(input_dir, 'upload_image_dehazed.jpg')
-
-#             # Remove previous files1
-#             for path in [input_path, output_path]:
-#                 if os.path.exists(path):
-#                     os.remove(path)
-
-#             # Save uploaded image
-#             with open(input_path, 'wb+') as destination:
-#                 for chunk in file.chunks():
-#                     destination.write(chunk)
-
-#             result = dehaze_image(input_path)
-#             if result is not None:
-#                 cv2.imwrite(output_path, result * 255)
-#                 return FileResponse(open(output_path, 'rb'), as_attachment=True)
-
-#         return JsonResponse({'error': 'Failed to process image'}, status=400)
+def delete_from_cloudinary(public_id, resource_type="image"):
+    try:
+        cloudinary.uploader.destroy(public_id, resource_type=resource_type, invalidate=True)
+        print(f"[INFO] Deleted {public_id} from Cloudinary.")
+    except Exception as e:
+        print(f"[ERROR] Failed to delete {public_id}: {e}")
 
 @csrf_exempt
 def dehaze_image_upload(request):
@@ -91,45 +70,20 @@ def dehaze_image_upload(request):
                         temp_output.flush()
                         upload_result = cloudinary.uploader.upload(temp_output.name, folder='dehazed_images/')
 
-                        # Save to MongoDB
+                        secure_url = upload_result['secure_url']
+                        public_id = upload_result['public_id']
+
                         collection.insert_one({
                             'type': 'image',
-                            'url': upload_result['secure_url']
+                            'url': secure_url,
+                            'public_id': public_id,
+                            'timestamp': time.time()
                         })
 
-                        return JsonResponse({'dehazed_image_url': upload_result['secure_url']})
+                        threading.Timer(30, delete_from_cloudinary, args=[public_id, "image"]).start()
+
+                        return JsonResponse({'dehazed_image_url': secure_url})
     return JsonResponse({'error': 'Failed to process image'}, status=400)
-
-# @csrf_exempt
-# def upload_video(request):
-#     if request.method == 'POST':
-#         file = request.FILES.get('file')
-#         if file:
-#             video_dir = os.path.join(settings.MEDIA_ROOT, 'videos')
-#             os.makedirs(video_dir, exist_ok=True)
-
-#             input_path = os.path.join(video_dir, 'upload_video.mp4')
-#             output_path = os.path.join(video_dir, 'output.mp4')
-
-#             # Remove old videos
-#             for path in [input_path, output_path]:
-#                 if os.path.exists(path):
-#                     os.remove(path)
-
-#             # Save new video
-#             with open(input_path, 'wb+') as destination:
-#                 for chunk in file.chunks():
-#                     destination.write(chunk)
-
-#             process_video(input_path, output_path)
-
-#             return JsonResponse({
-#                 'message': 'Video processed successfully',
-#                 'filename': 'output.mp4',
-#                 'processed_video_path': f'{settings.MEDIA_URL}videos/output.mp4'
-#             })
-
-#         return JsonResponse({'error': 'No video file provided'}, status=400)
 
 @csrf_exempt
 def upload_video(request):
@@ -150,26 +104,24 @@ def upload_video(request):
                         folder="dehazed_videos/"
                     )
 
-                    # Save to MongoDB
+                    secure_url = upload_result['secure_url']
+                    public_id = upload_result['public_id']
+
                     collection.insert_one({
                         'type': 'video',
-                        'url': upload_result['secure_url']
+                        'url': secure_url,
+                        'public_id': public_id,
+                        'timestamp': time.time()
                     })
+
+                    threading.Timer(30, delete_from_cloudinary, args=[public_id, "video"]).start()
 
                     return JsonResponse({
                         'message': 'Video processed and uploaded',
-                        'processed_video_url': upload_result['secure_url']
+                        'processed_video_url': secure_url
                     })
 
     return JsonResponse({'error': 'No video file provided'}, status=400)
-
-
-# def get_processed_video(request):
-#     video_path = request.GET.get('path')
-#     full_path = os.path.join(settings.MEDIA_ROOT, video_path.replace(settings.MEDIA_URL, ''))
-#     return FileResponse(open(full_path, 'rb'), content_type='video/mp4')
-
-
 
 @csrf_exempt
 def location_data_handler(request):
