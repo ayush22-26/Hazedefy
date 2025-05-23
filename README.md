@@ -108,7 +108,7 @@ Start the backend server
 
 **Client:** React, Redux, TailwindCSS, HTML, Javascript
 
-**Server:** Flask, Gunicorn
+**Server:** Django, Flask, Gunicorn
 
 **ML:** OpenCv, Tensorflow 
 
