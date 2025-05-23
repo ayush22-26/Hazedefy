@@ -169,9 +169,6 @@ def upload_video(request):
 #     full_path = os.path.join(settings.MEDIA_ROOT, video_path.replace(settings.MEDIA_URL, ''))
 #     return FileResponse(open(full_path, 'rb'), content_type='video/mp4')
 
-def get_uploads(request):
-    uploads = list(collection.find({}, {'_id': 0}))
-    return JsonResponse({'uploads': uploads}, safe=False)
 
 
 @csrf_exempt
