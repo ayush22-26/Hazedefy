@@ -114,12 +114,12 @@ def dehaze_image_upload(request):
                         secure_url = upload_result['secure_url']
                         public_id = upload_result['public_id']
 
-                        collection.insert_one({
-                            'type': 'image',
-                            'url': secure_url,
-                            'public_id': public_id,
-                            'timestamp': time.time()
-                        })
+                        # collection.insert_one({
+                        #     'type': 'image',
+                        #     'url': secure_url,
+                        #     'public_id': public_id,
+                        #     'timestamp': time.time()
+                        # })
 
                         threading.Timer(30, delete_from_cloudinary, args=[public_id, "image"]).start()
 
@@ -148,12 +148,12 @@ def upload_video(request):
                     secure_url = upload_result['secure_url']
                     public_id = upload_result['public_id']
 
-                    collection.insert_one({
-                        'type': 'video',
-                        'url': secure_url,
-                        'public_id': public_id,
-                        'timestamp': time.time()
-                    })
+                    # collection.insert_one({
+                    #     'type': 'video',
+                    #     'url': secure_url,
+                    #     'public_id': public_id,
+                    #     'timestamp': time.time()
+                    # })
 
                     threading.Timer(30, delete_from_cloudinary, args=[public_id, "video"]).start()
 

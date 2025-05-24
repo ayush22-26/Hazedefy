@@ -5,6 +5,7 @@ import load from '../assets/loading-icon.png';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HashLoader } from 'react-spinners';
+import { API_BASE_URL, API_KEY } from '../../config'
 
 
 function Video() {
@@ -28,7 +29,7 @@ function Video() {
     formData.append('file', selectedFile);
 
     axios
-      .post('http://127.0.0.1:8000/uploadvideo/', formData)
+      .post(`${API_BASE_URL}/uploadvideo/`, formData)
       .then((response) => {
         const videoUrl = response.data.processed_video_url;
         setProcessedVideoUrl(videoUrl);

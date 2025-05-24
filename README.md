@@ -102,6 +102,8 @@ Start the backend server
 ## Demo
 - [Youtube](https://youtu.be/VLvfvv1Fo9w?si=mAb1Ffesx7rzg1dv)
 
+- [Deployemt](https://hazedefy1.netlify.app/)
+
 
 
 ## Tech Stack
@@ -110,7 +112,11 @@ Start the backend server
 
 **Server:** Django, Flask, Gunicorn
 
-**ML:** OpenCv, Tensorflow 
+**ML:** OpenCv, numpy, pandas
+
+**Database:** MongoDB, Cloudinary
+
+**Deployment:** Render, Netlify
 
 
 ## Authors

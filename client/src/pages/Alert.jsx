@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DynamicGoogleMap from '../components/Map';
+import { API_BASE_URL, API_KEY } from '../../config'
 
 const LocationData = () => {
   const [locationData, setLocationData] = useState(null);
@@ -9,7 +10,7 @@ const LocationData = () => {
   useEffect(() => {
     const fetchLocationData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/location_data');
+        const response = await axios.get(`${API_BASE_URL}/location_data`);
         setLocationData(response.data);
         setLoading(false);
       } catch (error) {

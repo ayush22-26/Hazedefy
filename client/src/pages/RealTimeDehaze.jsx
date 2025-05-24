@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { API_BASE_URL, API_KEY } from '../../config'
 
 const RealTimeDehaze = () => {
     useEffect(() => {
@@ -21,7 +22,7 @@ const RealTimeDehaze = () => {
                         const imageData = canvas.toDataURL('image/jpeg');
 
                         // Send the frame to the server for dehazing
-                        fetch('http://127.0.0.1:8000/process_frame/', {
+                        fetch(`${API_BASE_URL}/process_frame/`, {
                             method: 'POST',
                             body: JSON.stringify({ image_data: imageData }),
                             headers: {

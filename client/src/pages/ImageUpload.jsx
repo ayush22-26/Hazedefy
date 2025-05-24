@@ -4,6 +4,7 @@ import dehaze from '../assets/dehazed.png';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HashLoader } from 'react-spinners';
+import { API_BASE_URL, API_KEY } from '../../config'
 
 function ImageUpload() {
   const [file, setFile] = useState(null);
@@ -24,7 +25,7 @@ function ImageUpload() {
   formData.append('upload_file', file);
 
   try {
-    const response = await axios.post('http://127.0.0.1:8000/dehaze/', formData, {
+    const response = await axios.post(`${API_BASE_URL}/dehaze/`, formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     });
     console.log("Response data:", response.data);  // <-- check what backend sends
