@@ -1,4 +1,4 @@
-from django.http import StreamingHttpResponse, JsonResponse, FileResponse
+from django.http import StreamingHttpResponse, JsonResponse, FileResponse , HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 import cv2, numpy as np, base64, os, json
@@ -17,6 +17,9 @@ location_data = {
     'latitude': None,
     'longitude': None
 }
+
+def home(request):
+    return HttpResponse("Mom , It's Working !")
 
 def generate_frames():
     while True:
