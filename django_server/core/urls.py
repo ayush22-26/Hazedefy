@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path('', views.home, name='home'),
     path('video_feed/', views.video_feed, name='video_feed'),
     path('process_frame/', views.process_frame, name='process_frame'),
     path('dehaze/', views.dehaze_image_upload, name='dehaze_image'),

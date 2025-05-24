@@ -19,7 +19,46 @@ location_data = {
 }
 
 def home(request):
-    return HttpResponse("Mom , It's Working !")
+    urls_and_methods = [
+        ('/', 'GET'),
+        ('/video_feed/', 'GET'),
+        ('/process_frame/', 'POST'),
+        ('/dehaze/', 'POST'),
+        ('/uploadvideo/', 'POST'),
+        ('/location_data/', 'GET, POST'),
+    ]
+
+    # Build styled HTML response with inline CSS
+    html_lines = [
+        "<html>",
+        "<head>",
+        "<title>Server Home</title>",
+        "<style>",
+        "  body { font-family: Arial, sans-serif; background: #f0f4f8; color: #333; padding: 30px; }",
+        "  h1 { color: #2c3e50; }",
+        "  ul { list-style-type: none; padding-left: 0; }",
+        "  li { background: #ffffff; margin: 8px 0; padding: 12px 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }",
+        "  .url { font-weight: bold; color: #2980b9; }",
+        "  .method { font-style: italic; color: #27ae60; margin-left: 10px; }",
+        "</style>",
+        "</head>",
+        "<body>",
+        "<h1>Mom, it's working!</h1>",
+        "<p>Available URLs and their HTTP methods:</p>",
+        "<ul>"
+    ]
+
+    for url, methods in urls_and_methods:
+        html_lines.append(f"<li><span class='url'>{url}</span> <span>---:></span> <span class='method'>{methods}</span></li>")
+
+    html_lines.extend([
+        "</ul>",
+        "</body>",
+        "</html>"
+    ])
+
+    html_response = "\n".join(html_lines)
+    return HttpResponse(html_response)
 
 def generate_frames():
     while True:
