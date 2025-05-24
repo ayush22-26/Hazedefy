@@ -15,7 +15,7 @@ const API_CONFIG = {
 };
 
 
-const CURRENT_ENV = "local"; 
+const CURRENT_ENV = "production"; 
 
 export const API_BASE_URL = API_CONFIG[CURRENT_ENV].baseUrl;
 export const API_KEY = API_CONFIG[CURRENT_ENV].apiKey;

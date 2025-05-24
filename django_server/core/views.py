@@ -121,7 +121,7 @@ def dehaze_image_upload(request):
                         #     'timestamp': time.time()
                         # })
 
-                        threading.Timer(30, delete_from_cloudinary, args=[public_id, "image"]).start()
+                        threading.Timer(120, delete_from_cloudinary, args=[public_id, "image"]).start()
 
                         return JsonResponse({'dehazed_image_url': secure_url})
     return JsonResponse({'error': 'Failed to process image'}, status=400)
@@ -155,7 +155,7 @@ def upload_video(request):
                     #     'timestamp': time.time()
                     # })
 
-                    threading.Timer(30, delete_from_cloudinary, args=[public_id, "video"]).start()
+                    threading.Timer(120, delete_from_cloudinary, args=[public_id, "video"]).start()
 
                     return JsonResponse({
                         'message': 'Video processed and uploaded',
