@@ -35,6 +35,20 @@ Hazedefy is a cutting-edge Dehaze as a Service platform that offers advanced ima
 
 The Hazedefy platform represents a significant advancement in visual enhancement technology, with applications spanning multiple industries. By offering image dehazing, video dehazing, and real-time dehazing capabilities, Hazedefy is poised to address critical challenges related to visibility, safety, and data analysis, paving the way for a clearer and more informed future across various domains
 
+## Concepts Used 
+- Digital Image Processing
+- Multithreading / Asynchronous processing
+- REST API design (POST/GET)
+- Client-server architecture
+- Image and video processing with OpenCV
+- File handling (temp storage and cleanup)
+- Time-based task scheduling
+- Memory management (avoiding out-of-memory errors)
+- HTTP status codes and responses
+- Gunicorn / WSGI
+- Render deployment
+- CORS and middleware
+
 ## Run Locally
 
 Clone the project
@@ -102,7 +116,9 @@ Start the backend server
 ## Demo
 - [Youtube](https://youtu.be/VLvfvv1Fo9w?si=mAb1Ffesx7rzg1dv)
 
-- [Deployemt](https://hazedefy1.netlify.app/)
+- **Deployemt:** : 
+  - [Front-end](https://hazedefy1.netlify.app/)
+  - [Back-end](https://hazedefy.onrender.com/)
 
 
 
